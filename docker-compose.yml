@@ -1,0 +1,12 @@
+nginx:
+  build: docker-ngx_mruby/
+  volumes:
+    - .:/myapp
+  ports:
+    - "10080:80"
+  links:
+    - rack
+  volumes:
+    - /var/log:/var/log/nginx
+rack:
+  build: rack_docker/
